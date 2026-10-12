@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A small learning project for encrypted file storage.">
+  <title>Encrypted File Transfer &amp; Secure File Storage</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+  <main class="page">
+    <h1>Encrypted File Transfer &amp; Secure File Storage</h1>
+    <p class="intro">Files are encrypted in your browser before their chunks are uploaded.</p>
+
+    <section aria-labelledby="access-heading">
+      <h2 id="access-heading">Access</h2>
+      <label for="access-token">Your access token</label>
+      <input id="access-token" type="password" autocomplete="off"
+             placeholder="Paste the token configured by the server administrator">
+      <p class="help">The token is kept in this page only and is not saved in your browser.</p>
+    </section>
+
+    <section aria-labelledby="upload-heading">
+      <h2 id="upload-heading">Upload a file</h2>
+      <label for="file-input">Choose a file</label>
+      <input id="file-input" type="file">
+      <button id="upload-button" type="button">Upload File</button>
+    </section>
+
+    <section aria-labelledby="files-heading">
+      <h2 id="files-heading">Your stored files</h2>
+      <button id="refresh-button" type="button" class="secondary">Refresh list</button>
+      <ul id="file-list" aria-live="polite"></ul>
+    </section>
+
+    <section aria-labelledby="progress-heading">
+      <h2 id="progress-heading">Transfer status</h2>
+      <progress id="transfer-progress" max="100" value="0"></progress>
+      <p id="status-message" role="status" aria-live="polite">Enter your access token to begin.</p>
+    </section>
+  </main>
+</body>
+</html>
